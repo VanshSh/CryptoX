@@ -11,7 +11,7 @@ export function numberWithCommas(x) {
 
 const Carousel = () => {
     const [trending, setTrending] = useState([])
-    const { currency, setCurrency, symbol } = useCryptoContext()
+    const { currency,  symbol } = useCryptoContext()
 
     const fetchData = async () => {
         const { data } = await axios.get(TrendingCoins(currency))
@@ -25,7 +25,7 @@ const Carousel = () => {
         let profit = data.price_change_percentage_24h >= 0
 
         return (
-            <Link to={`/coins/${data.id}`} className='carousel_item'>
+            <Link to={`/coins/${data.id}`} className='carousel_item' >
                 <img src={data.image} alt={data.name} height='100' />
                 <span>{data.symbol}</span>
                 &nbsp;
