@@ -166,16 +166,13 @@ const CoinsTable = () => {
       </TableContainer>
       {!loading && (
         <Pagination
+          hideNextButton
+          hidePrevButton
           count={(filterSearch().length / 10).toFixed(0)}
           color="primary"
+          sx={{ p: 2, display: "flex", justifyContent: "center" }}
           className="pagination"
           onChange={onPageChangeHandler}
-          sx={{
-            my: 3,
-            py: 2,
-            display: "flex",
-            justifyContent: "center"
-          }}
         />
       )}
     </Container>
