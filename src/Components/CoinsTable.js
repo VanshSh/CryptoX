@@ -55,7 +55,7 @@ const CoinsTable = () => {
   };
   return (
     <Container sx={{ textAlign: "center" }}>
-      <Typography variant="h3">Crypto Prices</Typography>
+      <Typography variant="h4">Search Cryptos</Typography>
       <TextField
         label="Search For a Crypto Currency.. "
         sx={{ color: "white", backgroundColor: "white", my: 2 }}
