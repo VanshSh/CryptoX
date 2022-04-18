@@ -1,10 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&family=Fira+Sans:wght@500&family=Lobster&family=Merriweather:wght@700&family=Outfit&family=Roboto+Serif&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600&display=swap");
 
 :root {
-  --brand-color: #22c55e;
-  --dark-color: #253251;
-  --mid-color: #abb8c9;
-  --light-color: #fafafa;
+  --brand-color: #15d155;
+  --dark-color: black;
+  --mid-color: #c0c8d4;
+  --light-color: #ffffff;
 }
 * {
   padding: 0;
@@ -12,35 +12,34 @@
   box-sizing: border-box;
   text-decoration: none;
   scroll-behavior: smooth;
-  /* border:1px solid red; */
+  /* border: 1px solid red; */
 }
 
 /* App */
 .App {
   background-color: black;
-  color: white;
-  min-height: 100vh;
+  color: var(--light-color);
 }
 
 /* Header */
-.title_span {
+
+.title {
+  display: flex;
+  cursor: pointer;
   color: var(--brand-color);
-  font-weight: bolder;
-  font-size: 2rem;
-  flex: 1;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  flex-grow: 1;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 1rem 0;
 }
 
 .select_currency {
-  color: var(--mid-color);
-  font-weight: bolder;
-  outline: none;
-  text-align: center;
-  margin-left: auto;
-  width: 20%;
   border: 1px solid white;
+  background-color: var(--mid-color);
+  color: var(--dark-color);
 }
 
+/* Banner */
 .banner_img {
   position: relative;
 }
@@ -135,9 +134,16 @@
 }
 
 .button:hover {
-  background-color:rgb(126, 211, 126);
+  background-color: rgb(126, 211, 126);
 }
 
 .activeButton {
   background-color: green;
+}
+
+/* Media Queries */
+@media only screen and (min-width: 700px) {
+  .title {
+    font-size: 3rem;
+  }
 }
