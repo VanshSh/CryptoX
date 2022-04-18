@@ -23,7 +23,7 @@ const Header = () => {
             onClick={() => navigate("/")}
             className="title"
           >
-            CryptoX
+            <h3>CryptoX</h3>
           </Typography>
 
           <Select
