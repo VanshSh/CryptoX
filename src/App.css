@@ -1,38 +1,143 @@
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&family=Fira+Sans:wght@500&family=Lobster&family=Merriweather:wght@700&family=Outfit&family=Roboto+Serif&display=swap");
+
+:root {
+  --brand-color: #22c55e;
+  --dark-color: #253251;
+  --mid-color: #abb8c9;
+  --light-color: #fafafa;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  scroll-behavior: smooth;
+  /* border:1px solid red; */
+}
+
+/* App */
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  background-color: black;
+  color: white;
   min-height: 100vh;
+}
+
+/* Header */
+.title_span {
+  color: var(--brand-color);
+  font-weight: bolder;
+  font-size: 2rem;
+  flex: 1;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.select_currency {
+  color: var(--mid-color);
+  font-weight: bolder;
+  outline: none;
+  text-align: center;
+  margin-left: auto;
+  width: 20%;
+  border: 1px solid white;
+}
+
+.banner_img {
+  position: relative;
+}
+.banner_img::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: blur(3px);
+  background-image: url(https://images.unsplash.com/photo-1639322537228-f710d846310a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80);
+}
+.carousel {
+  height: 50%;
+  display: flex;
+  padding: 2rem;
+  align-items: center;
+}
+
+.carousel_item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  cursor: pointer;
   color: white;
+  text-transform: uppercase;
 }
 
-.App-link {
-  color: #61dafb;
+.searchBar {
+  font-weight: bold;
+  border-radius: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.searchBar:hover {
+  cursor: text;
+  border: none;
+}
+
+.tableRow:hover {
+  background-color: #364669;
+}
+
+.pagination {
+  background-color: #abb8c9;
+}
+
+.coinpage {
+  display: flex;
+}
+
+.sidebar {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+  border-right: 2px solid #857f7f;
+}
+
+@media only screen and (max-width: 750px) {
+  .coinpage {
+    flex-direction: column;
+    align-items: center;
   }
-  to {
-    transform: rotate(360deg);
+
+  .sidebar {
+    width: 100%;
+    border: none;
   }
+}
+
+.chart {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  padding: 4rem;
+}
+
+.button {
+  padding: 0.8rem 2rem;
+  font-weight: bolder;
+  font-size: 1.3rem;
+  border: 1px solid green;
+  background-color: transparent;
+  cursor: pointer;
+  color: white;
+  border-radius: 10px;
+}
+
+.button:hover {
+  background-color:rgb(126, 211, 126);
+}
+
+.activeButton {
+  background-color: green;
 }
