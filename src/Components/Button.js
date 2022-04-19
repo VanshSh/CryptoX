@@ -1,7 +1,7 @@
 const Button = ({ label, value, setDayHandler, selected }) => {
 
     return (
-        <>
+        <div >
             <button
                 className={selected ? 'button activeButton' : 'button'}
                 onClick={() => {
@@ -10,7 +10,7 @@ const Button = ({ label, value, setDayHandler, selected }) => {
             >
                 {label}
             </button>
-        </>
+        </div>
     )
 }
 
