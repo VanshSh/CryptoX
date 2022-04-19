@@ -6,16 +6,19 @@
   --mid-color: #c0c8d4;
   --light-color: #ffffff;
 }
+
+/* HTML  */
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   text-decoration: none;
   scroll-behavior: smooth;
-  /* border: 1px solid red; */
 }
 
 /* App */
+
 .App {
   background-color: black;
   color: var(--light-color);
@@ -88,21 +91,35 @@
   background-color: #abb8c9;
 }
 
+/* Coin Page */
 .coinpage {
   display: flex;
+  gap: 1rem;
+  align-items: center;
 }
 
 .sidebar {
-  width: 30%;
+  width: 150%;
   display: flex;
   flex-direction: column;
-  align-items: center;
   margin-top: 2rem;
   border-right: 2px solid #857f7f;
+ 
 }
 
+* {
+  /* border: 1px solid red; */
+}
+
+.market_data {
+  padding: 0.5rem;
+   padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+/* Coin info */
 .chart {
-  width: 75%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -123,7 +140,7 @@
 }
 
 .button:hover {
-  background-color: rgb(126, 211, 126);
+  background-color: rgb(15, 153, 15);
 }
 
 .activeButton {
