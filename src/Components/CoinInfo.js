@@ -27,12 +27,7 @@ const CoinInfo = ({ coin }) => {
     <>
       <div className="chart">
         {!historicalData ? (
-          <CircularProgress
-            color="success"
-            sx={{
-              size: 250
-            }}
-          />
+          <CircularProgress color="success" />
         ) : (
           <>
             {" "}

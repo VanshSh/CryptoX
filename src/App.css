@@ -116,8 +116,6 @@
   padding: 4rem;
 }
 
-
-
 .buttons {
   display: flex;
   justify-content: center;
@@ -164,7 +162,7 @@
 
   .chart {
     width: 90%;
-    padding:1px;
+    padding: 1px;
   }
 
   .buttons {
