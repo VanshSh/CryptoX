@@ -10,6 +10,13 @@ export const CryptoContextProvider = ({ children }) => {
     const [coins, setCoins] = useState([])
     const [loading, setLoading] = useState(false)
     const [user, setUser] = useState(null)
+    const [error, setError] = useState({
+        open: false,
+        message: '',
+        type: '',
+        vertical: 'top',
+        horizontal: 'right',
+    })
 
     useEffect(() => {
         if (currency === 'INR') setSymbol('₹')
@@ -33,8 +40,10 @@ export const CryptoContextProvider = ({ children }) => {
                 loading,
                 setLoading,
                 fetchCoins,
+                error,
+                setError,
             }}
-        >
+        > 
             {children}
         </CryptoContext.Provider>
     )
