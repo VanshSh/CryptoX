@@ -16,7 +16,7 @@ const Header = () => {
     const { currency, setCurrency } = useCryptoContext()
 
     return (
-        <Box sx={{ flexGrow: 1 }}>
+        <Box sx={{ flexGrow: 0.3 }}>
             <AppBar position='static' sx={{ backgroundColor: '#050504' }}>
                 <Toolbar>
                     <Typography
