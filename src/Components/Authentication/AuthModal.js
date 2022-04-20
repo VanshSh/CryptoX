@@ -9,12 +9,12 @@ const style = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: '70%',
+    // width: '70%',
     bgcolor: 'black',
     border: '2px solid white',
     boxShadow: 24,
     p: 4,
-    borderRadius:"10px"
+    borderRadius: '10px',
 }
 
 export default function AuthModal() {
@@ -50,7 +50,7 @@ export default function AuthModal() {
                 aria-labelledby='modal-modal-title'
                 aria-describedby='modal-modal-description'
             >
-                <Box sx={style}>
+                <Box sx={style} className='box-modal'>
                     <Login />
                 </Box>
             </Modal>

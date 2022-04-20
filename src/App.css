@@ -143,10 +143,16 @@
     background-color: green;
 }
 
+/* AuthModal */
+.box-modal {
+    width: 40%;
+}
+
 /* Media Queries */
+
 @media only screen and (max-width: 600px) {
-    .title {
-        font-size: 1rem;
+    .box-modal {
+        width: 70%;
     }
 }
 
