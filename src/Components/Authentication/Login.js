@@ -3,10 +3,23 @@ import Button from '@mui/material/Button'
 import GoogleIcon from '@mui/icons-material/Google'
 import GitHubIcon from '@mui/icons-material/GitHub'
 import PermIdentityIcon from '@mui/icons-material/PermIdentity'
+import AlertPopup from '../Alert'
+import { useCryptoContext } from '../../Context'
 
 const Login = () => {
+    const { alert, setAlert } = useCryptoContext()
+
+    const openSnackBar = () => {
+        setAlert({
+            open: true,
+            message: 'Login Successful',
+            severity: 'success',
+        })
+    }
+
     return (
         <div>
+            <AlertPopup />
             <p
                 style={{
                     color: 'white',
@@ -33,6 +46,7 @@ const Login = () => {
                             'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
                         color: 'white',
                     }}
+                    onClick={openSnackBar}
                 >
                     Google
                 </Button>
