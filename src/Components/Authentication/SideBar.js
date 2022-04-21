@@ -55,8 +55,8 @@ export default function SideBar() {
             {['right'].map((anchor) => (
                 <React.Fragment key={anchor}>
                     <Avatar
-                        sx={{ mx: '1rem' }}
-                        alt='Remy Sharp'
+                        sx={{ mx: '1rem', cursor: 'pointer' }}
+                        alt={user ? user.name : 'User'}
                         src='https://picsum.photos/seed/picsum/200/300'
                         onClick={toggleDrawer(anchor, true)}
                     />
