@@ -25,14 +25,18 @@ export default function AlertPopup() {
         <>
             <Snackbar
                 open={open}
-                autoHideDuration={6000}
+                autoHideDuration={900}
                 onClose={handleClose}
-                anchorOrigin={{ vertical: 'top', horizontal: 'right ' }}
+                anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
             >
                 <Alert
                     onClose={handleClose}
                     severity={severity}
-                    sx={{ width: '100%' }}
+                    sx={{
+                        width: '60%',
+                        margin: '0 5rem',
+                        padding: '0.5rem 1rem',
+                    }}
                 >
                     {message}
                 </Alert>

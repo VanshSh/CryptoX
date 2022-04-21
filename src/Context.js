@@ -1,6 +1,8 @@
-import React, { createContext, useContext, useState, useEffect } from 'react'
 import axios from 'axios'
+import React, { createContext, useContext, useEffect, useState } from 'react'
 import { CoinList } from './config/api'
+import { onAuthStateChanged } from 'firebase/auth'
+import { auth } from './firebase'
 
 const CryptoContext = createContext()
 
@@ -29,18 +31,26 @@ export const CryptoContextProvider = ({ children }) => {
         setLoading(false)
     }
 
+    useEffect(() => {
+        onAuthStateChanged(auth, (user) => {
+            if (user) setUser(user)
+            else setUser(null)
+        })
+    }, [])
     return (
         <CryptoContext.Provider
             value={{
                 currency,
-                symbol,
                 setCurrency,
-                coins,
                 loading,
                 setLoading,
+                coins,
                 fetchCoins,
                 alert,
                 setAlert,
+                user,
+                setUser,
+                symbol,
             }}
         >
             {children}

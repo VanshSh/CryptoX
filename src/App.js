@@ -1,9 +1,10 @@
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Header from "./Components/Header"
+import Header from './Components/Header'
 import HomePage from './Pages/HomePage'
 import CoinPage from './Pages/CoinPage'
 import NotFound from './Pages/NotFound'
+import AlertPopup from './Components/AlertPopup'
 
 const App = () => {
     return (
@@ -16,6 +17,7 @@ const App = () => {
                     <Route path='*' element={<NotFound />} />
                 </Routes>
             </div>
+            <AlertPopup />
         </BrowserRouter>
     )
 }

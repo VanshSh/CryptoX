@@ -10,10 +10,11 @@ import {
 } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 import { useCryptoContext } from '../Context'
+import SideBar from './Authentication/SideBar'
 
 const Header = () => {
     const navigate = useNavigate()
-    const { currency, setCurrency } = useCryptoContext()
+    const { currency, setCurrency, user } = useCryptoContext()
 
     return (
         <Box sx={{ flexGrow: 0.3 }}>
@@ -25,7 +26,7 @@ const Header = () => {
                         onClick={() => navigate('/')}
                         className='title'
                     >
-                     CryptoX
+                        CryptoX
                     </Typography>
 
                     <Select
@@ -40,7 +41,7 @@ const Header = () => {
                         <MenuItem value={'INR'}>INR</MenuItem>
                         <MenuItem value={'USD'}>USD</MenuItem>
                     </Select>
-                    <AuthModal />
+                    {!user ? <SideBar /> : <AuthModal />}
                 </Toolbar>
             </AppBar>
         </Box>
