@@ -75,7 +75,7 @@ export default function SideBar() {
                 <React.Fragment key={anchor}>
                     <Avatar
                         sx={{ mx: '1rem', cursor: 'pointer' }}
-                        alt={user ? user.name : 'User'}
+                        alt={user ? user.displayName : 'User'}
                         src={
                             user
                                 ? user.photoURL
@@ -90,8 +90,12 @@ export default function SideBar() {
                     >
                         <div style={drawer_container}>
                             <Avatar
-                                alt='Remy Sharp'
-                                src='https://picsum.photos/200/300?random=1'
+                                alt={user.displayName || 'User'}
+                                src={
+                                    user
+                                        ? user.photoURL
+                                        : 'https://picsum.photos/200/300?random=1'
+                                }
                                 sx={{ width: 200, height: 200, mx: 'auto' }}
                             />
                             <span
@@ -103,11 +107,12 @@ export default function SideBar() {
                                     fontWeight: 'bold',
                                 }}
                             >
-                                {user ? user.name : 'Users'}
+                                {user ? user.displayName : 'Users'}
                             </span>
                             <Button
                                 variant='contained'
                                 color='error'
+                                sx={{my:"10px "}}
                                 onClick={logoutHandler}
                             >
                                 LOGOUT

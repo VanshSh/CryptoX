@@ -24,7 +24,7 @@ export const CryptoContextProvider = ({ children }) => {
         severity: '',
         message: '',
     })
-
+    console.log(user)
     useEffect(() => {
         if (currency === 'INR') setSymbol('₹')
         if (currency === 'USD') setSymbol('$')

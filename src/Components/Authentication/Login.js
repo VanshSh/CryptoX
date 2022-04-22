@@ -10,8 +10,7 @@ const Login = () => {
     const { setAlert, anonymousSignIn, googleSignIn, githubSignIn } =
         useCryptoContext()
 
-    const signinHandler = async (signinProvider, e) => {
-        e.preventDefault()
+    const signinHandler = async (signinProvider) => {
         try {
             await signinProvider()
             setAlert({
