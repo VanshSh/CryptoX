@@ -52,13 +52,22 @@ export default function SideBar() {
         }
         setState({ ...state, [anchor]: open })
     }
-
-    const logoutHandler = () => {
-        setAlert({
-            message: 'Logged out successfully',
-            severity: 'success',
-            open: true,
-        })
+    const logoutHandler = async () => {
+        try {
+            await signOut(auth)
+            setAlert({
+                message:
+                    'Logged out successfully. Add drawerclose and signout function (signout(auth)',
+                severity: 'success',
+                open: true,
+            })
+        } catch (err) {
+            setAlert({
+                message: err.message,
+                severity: 'success',
+                open: true,
+            })
+        }
     }
     return (
         <div>

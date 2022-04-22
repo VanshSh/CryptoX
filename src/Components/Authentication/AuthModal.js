@@ -9,7 +9,6 @@ const style = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    // width: '70%',
     bgcolor: 'black',
     border: '2px solid white',
     boxShadow: 24,

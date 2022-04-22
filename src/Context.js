@@ -1,7 +1,13 @@
 import axios from 'axios'
 import React, { createContext, useContext, useEffect, useState } from 'react'
 import { CoinList } from './config/api'
-import { onAuthStateChanged } from 'firebase/auth'
+import {
+    GithubAuthProvider,
+    GoogleAuthProvider,
+    onAuthStateChanged,
+    signInAnonymously,
+    signInWithPopup,
+} from 'firebase/auth'
 import { auth } from './firebase'
 
 const CryptoContext = createContext()
@@ -31,11 +37,31 @@ export const CryptoContextProvider = ({ children }) => {
         setLoading(false)
     }
 
+    // SIGIN with Google
+    const googleSignIn = () => {
+        const googleProvider = new GoogleAuthProvider()
+        return signInWithPopup(auth, googleProvider)
+    }
+
+    // SIGIN with Github
+    const githubSignIn = () => {
+        const githubProvider = new GithubAuthProvider()
+        return signInWithPopup(auth, githubProvider)
+    }
+
+    // SIGIN Anonymously
+    const anonymousSignIn = () => {
+        return signInAnonymously(auth)
+    }
+
     useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
+        const unSubscribe = onAuthStateChanged(auth, (user) => {
             if (user) setUser(user)
             else setUser(null)
         })
+        return () => {
+            unSubscribe()
+        }
     }, [])
     return (
         <CryptoContext.Provider
@@ -51,6 +77,9 @@ export const CryptoContextProvider = ({ children }) => {
                 user,
                 setUser,
                 symbol,
+                anonymousSignIn,
+                googleSignIn,
+                githubSignIn,
             }}
         >
             {children}

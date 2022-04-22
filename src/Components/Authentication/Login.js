@@ -7,6 +7,27 @@ import AlertPopup from '../AlertPopup'
 import { useCryptoContext } from '../../Context'
 
 const Login = () => {
+    const { setAlert, anonymousSignIn, googleSignIn, githubSignIn } =
+        useCryptoContext()
+
+    const signinHandler = async (signinProvider, e) => {
+        e.preventDefault()
+        try {
+            await signinProvider()
+            setAlert({
+                message: 'Logged in successfully',
+                severity: 'success',
+                open: true,
+            })
+        } catch (err) {
+            setAlert({
+                message: err.message,
+                severity: 'error',
+                open: true,
+            })
+        }
+    }
+
     return (
         <div>
             <p
@@ -30,6 +51,7 @@ const Login = () => {
                 <Button
                     variant='outlined'
                     startIcon={<GoogleIcon />}
+                    onClick={() => signinHandler(googleSignIn)}
                     sx={{
                         background:
                             'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
@@ -41,6 +63,7 @@ const Login = () => {
                 <Button
                     variant='outlined'
                     startIcon={<GitHubIcon />}
+                    onClick={() => signinHandler(githubSignIn)}
                     sx={{
                         color: 'white',
                         background:
@@ -52,6 +75,7 @@ const Login = () => {
                 <Button
                     variant='outlined'
                     startIcon={<PermIdentityIcon />}
+                    onClick={() => signinHandler(anonymousSignIn)}
                     sx={{
                         color: 'white',
                         background:

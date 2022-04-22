@@ -41,7 +41,7 @@ const Header = () => {
                         <MenuItem value={'INR'}>INR</MenuItem>
                         <MenuItem value={'USD'}>USD</MenuItem>
                     </Select>
-                    {!user ? <SideBar /> : <AuthModal />}
+                    {user ? <SideBar /> : <AuthModal />}
                 </Toolbar>
             </AppBar>
         </Box>
