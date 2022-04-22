@@ -10,9 +10,35 @@ import InboxIcon from '@mui/icons-material/MoveToInbox'
 import MailIcon from '@mui/icons-material/Mail'
 import Avatar from '@mui/material/Avatar'
 import { useCryptoContext } from '../../Context'
+import { signOut } from 'firebase/auth'
+import { auth } from '../../firebase'
+
+// Styles
+const drawer_container = {
+    width: 300,
+    padding: 25,
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    backgroundColor: '#9e9e9e',
+}
+
+const watchlist = {
+    flex: 1,
+    width: '100%',
+    backgroundColor: '#bfbfbf',
+    borderRadius: '5px',
+    padding: '15px 0',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: '10px',
+    overflow: 'scroll',
+    margin: '15px 0',
+}
 
 export default function SideBar() {
-    const { user } = useCryptoContext()
+    const { user, setAlert } = useCryptoContext()
     const [state, setState] = React.useState({
         right: false,
     })
@@ -24,32 +50,16 @@ export default function SideBar() {
         ) {
             return
         }
-
         setState({ ...state, [anchor]: open })
     }
 
-    const list = (anchor) => (
-        <Box
-            sx={{
-                width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250,
-            }}
-            role='presentation'
-            onClick={toggleDrawer(anchor, false)}
-            onKeyDown={toggleDrawer(anchor, false)}
-        >
-            <List>
-                {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>
-                            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
-            </List>
-        </Box>
-    )
-
+    const logoutHandler = () => {
+        setAlert({
+            message: 'Logged out successfully',
+            severity: 'success',
+            open: true,
+        })
+    }
     return (
         <div>
             {['right'].map((anchor) => (
@@ -57,7 +67,11 @@ export default function SideBar() {
                     <Avatar
                         sx={{ mx: '1rem', cursor: 'pointer' }}
                         alt={user ? user.name : 'User'}
-                        src='https://picsum.photos/seed/picsum/200/300'
+                        src={
+                            user
+                                ? user.photoURL
+                                : 'https://picsum.photos/200/300?random=1'
+                        }
                         onClick={toggleDrawer(anchor, true)}
                     />
                     <Drawer
@@ -65,7 +79,37 @@ export default function SideBar() {
                         open={state[anchor]}
                         onClose={toggleDrawer(anchor, false)}
                     >
-                        {list(anchor)}
+                        <div style={drawer_container}>
+                            <Avatar
+                                alt='Remy Sharp'
+                                src='https://picsum.photos/200/300?random=1'
+                                sx={{ width: 200, height: 200, mx: 'auto' }}
+                            />
+                            <span
+                                style={{
+                                    width: '100%',
+                                    fontSize: '2rem',
+                                    textAlign: 'center',
+                                    wordWrap: 'break-word',
+                                    fontWeight: 'bold',
+                                }}
+                            >
+                                {user ? user.name : 'Users'}
+                            </span>
+                            <Button
+                                variant='contained'
+                                color='error'
+                                onClick={logoutHandler}
+                            >
+                                LOGOUT
+                            </Button>
+
+                            <div style={watchlist}>
+                                <span style={{ fontSize: '1.5rem' }}>
+                                    Watchlist
+                                </span>
+                            </div>
+                        </div>
                     </Drawer>
                 </React.Fragment>
             ))}
