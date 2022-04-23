@@ -23,7 +23,7 @@ const drawer_container = {
     backgroundColor: '#9e9e9e',
 }
 
-const watchlist = {
+const watchlistStyle = {
     flex: 1,
     width: '100%',
     backgroundColor: '#bfbfbf',
@@ -38,7 +38,7 @@ const watchlist = {
 }
 
 export default function SideBar() {
-    const { user, setAlert } = useCryptoContext()
+    const { user, setAlert, watchlist, coins } = useCryptoContext()
     const [state, setState] = React.useState({
         right: false,
     })
@@ -56,8 +56,7 @@ export default function SideBar() {
         try {
             await signOut(auth)
             setAlert({
-                message:
-                    'Logged out successfully.',
+                message: 'Logged out successfully.',
                 severity: 'success',
                 open: true,
             })
@@ -69,6 +68,9 @@ export default function SideBar() {
             })
         }
     }
+
+    //  Add list
+
     return (
         <div>
             {['right'].map((anchor) => (
@@ -118,10 +120,12 @@ export default function SideBar() {
                                 LOGOUT
                             </Button>
 
-                            <div style={watchlist}>
+                            <div style={watchlistStyle}>
                                 <span style={{ fontSize: '1.5rem' }}>
                                     Watchlist
                                 </span>
+
+                              
                             </div>
                         </div>
                     </Drawer>

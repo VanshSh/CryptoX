@@ -9,6 +9,8 @@ import {
     signInWithPopup,
 } from 'firebase/auth'
 import { auth } from './firebase'
+import { onSnapshot, doc } from 'firebase/firestore'
+import { db } from './firebase'
 
 const CryptoContext = createContext()
 
@@ -18,13 +20,14 @@ export const CryptoContextProvider = ({ children }) => {
     const [coins, setCoins] = useState([])
     const [loading, setLoading] = useState(false)
     const [user, setUser] = useState(null)
+    const [watchlist, setWatchlist] = useState([])
     const [alert, setAlert] = useState({
         open: false,
         message: '',
         severity: '',
         message: '',
     })
-    console.log(user)
+
     useEffect(() => {
         if (currency === 'INR') setSymbol('₹')
         if (currency === 'USD') setSymbol('$')
@@ -36,6 +39,23 @@ export const CryptoContextProvider = ({ children }) => {
         setCoins(data)
         setLoading(false)
     }
+
+    // Set watchlist
+    useEffect(() => {
+        if (user) {
+            const coinRef = doc(db, 'watchlist', user.uid)
+            const unsubscribe = onSnapshot(coinRef, (coin) => {
+                if (coin.exists) {
+                    setWatchlist(coin.data().coins)
+                } else {
+                    console.log('No watchlist found')
+                }
+            })
+            return () => {
+                unsubscribe()
+            }
+        }
+    }, [user])
 
     // SIGIN with Google
     const googleSignIn = () => {
@@ -53,7 +73,6 @@ export const CryptoContextProvider = ({ children }) => {
     const anonymousSignIn = () => {
         return signInAnonymously(auth)
     }
-
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (user) => {
             if (user) setUser(user)
@@ -77,6 +96,8 @@ export const CryptoContextProvider = ({ children }) => {
                 user,
                 setUser,
                 symbol,
+                watchlist,
+                setWatchlist,
                 anonymousSignIn,
                 googleSignIn,
                 githubSignIn,
