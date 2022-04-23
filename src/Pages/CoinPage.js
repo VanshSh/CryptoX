@@ -15,7 +15,6 @@ const CoinPage = () => {
     const { symbol, currency, user, watchlist, setAlert } = useCryptoContext()
     const { id } = useParams()
 
-
     const fetchCoinData = async () => {
         const { data } = await axios.get(SingleCoin(id))
         setCoin(data)
@@ -46,7 +45,7 @@ const CoinPage = () => {
             })
         }
     }
-
+    console.log('Watcchlist coinpage', watchlist)
     const removeFromWatchlist = async () => {
         const coinRef = doc(db, 'watchlist', user.uid)
         try {
@@ -55,7 +54,7 @@ const CoinPage = () => {
                 {
                     coins: watchlist.filter((watch) => watch !== coin.id),
                 },
-                { merge: "true" }
+                { merge: 'true' }
             )
             setAlert({
                 open: true,

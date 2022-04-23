@@ -69,8 +69,6 @@ export default function SideBar() {
         }
     }
 
-    //  Add list
-
     return (
         <div>
             {['right'].map((anchor) => (
@@ -124,8 +122,6 @@ export default function SideBar() {
                                 <span style={{ fontSize: '1.5rem' }}>
                                     Watchlist
                                 </span>
-
-                              
                             </div>
                         </div>
                     </Drawer>

@@ -28,6 +28,10 @@ export const CryptoContextProvider = ({ children }) => {
         message: '',
     })
 
+        console.log('contexr coinpage', watchlist)
+
+
+
     useEffect(() => {
         if (currency === 'INR') setSymbol('₹')
         if (currency === 'USD') setSymbol('$')
