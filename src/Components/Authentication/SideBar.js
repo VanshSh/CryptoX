@@ -57,14 +57,14 @@ export default function SideBar() {
             await signOut(auth)
             setAlert({
                 message:
-                    'Logged out successfully. Add drawerclose and signout function (signout(auth)',
+                    'Logged out successfully.',
                 severity: 'success',
                 open: true,
             })
         } catch (err) {
             setAlert({
                 message: err.message,
-                severity: 'success',
+                severity: 'error',
                 open: true,
             })
         }
@@ -107,12 +107,12 @@ export default function SideBar() {
                                     fontWeight: 'bold',
                                 }}
                             >
-                                {user ? user.displayName : 'Users'}
+                                {user ? user.displayName : 'Guest User'}
                             </span>
                             <Button
                                 variant='contained'
                                 color='error'
-                                sx={{my:"10px "}}
+                                sx={{ my: '10px ' }}
                                 onClick={logoutHandler}
                             >
                                 LOGOUT
