@@ -7,6 +7,8 @@ import { signOut } from 'firebase/auth'
 import { auth } from '../../firebase'
 import { numberWithCommas } from '../Banner/Carousel'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever'
+import { doc, setDoc } from 'firebase/firestore'
+import { db } from '../../firebase'
 
 // Styles
 const drawer_container = {
@@ -46,6 +48,30 @@ export default function SideBar() {
             return
         }
         setState({ ...state, [anchor]: open })
+    }
+
+    const removeFromWatchlist = async (coin) => {
+        const coinRef = doc(db, 'watchlist', user.uid)
+        try {
+            await setDoc(
+                coinRef,
+                {
+                    coins: watchlist.filter((watch) => watch !== coin.id),
+                },
+                { merge: 'true' }
+            )
+            setAlert({
+                open: true,
+                severity: 'success',
+                message: `${coin.name} removed from the watchlist`,
+            })
+        } catch (err) {
+            setAlert({
+                open: true,
+                severity: 'error',
+                messgae: err.message,
+            })
+        }
     }
     const logoutHandler = async () => {
         try {
@@ -154,6 +180,11 @@ export default function SideBar() {
                                                             )
                                                         )}
                                                         <DeleteForeverIcon
+                                                            onClick={() =>
+                                                                removeFromWatchlist(
+                                                                    coin
+                                                                )
+                                                            }
                                                             sx={{
                                                                 cursor: 'pointer',
                                                                 ml: '10px',
