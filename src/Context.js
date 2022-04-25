@@ -28,10 +28,6 @@ export const CryptoContextProvider = ({ children }) => {
         message: '',
     })
 
-        console.log('contexr coinpage', watchlist)
-
-
-
     useEffect(() => {
         if (currency === 'INR') setSymbol('₹')
         if (currency === 'USD') setSymbol('$')
@@ -78,14 +74,12 @@ export const CryptoContextProvider = ({ children }) => {
         return signInAnonymously(auth)
     }
     useEffect(() => {
-        const unSubscribe = onAuthStateChanged(auth, (user) => {
+        onAuthStateChanged(auth, (user) => {
             if (user) setUser(user)
             else setUser(null)
         })
-        return () => {
-            unSubscribe()
-        }
     }, [])
+
     return (
         <CryptoContext.Provider
             value={{

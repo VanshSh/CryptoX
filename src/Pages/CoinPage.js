@@ -45,7 +45,7 @@ const CoinPage = () => {
             })
         }
     }
-    console.log('Watcchlist coinpage', watchlist)
+
     const removeFromWatchlist = async () => {
         const coinRef = doc(db, 'watchlist', user.uid)
         try {

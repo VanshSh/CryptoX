@@ -1,17 +1,12 @@
 import * as React from 'react'
-import Box from '@mui/material/Box'
 import Drawer from '@mui/material/Drawer'
 import Button from '@mui/material/Button'
-import List from '@mui/material/List'
-import ListItem from '@mui/material/ListItem'
-import ListItemIcon from '@mui/material/ListItemIcon'
-import ListItemText from '@mui/material/ListItemText'
-import InboxIcon from '@mui/icons-material/MoveToInbox'
-import MailIcon from '@mui/icons-material/Mail'
 import Avatar from '@mui/material/Avatar'
 import { useCryptoContext } from '../../Context'
 import { signOut } from 'firebase/auth'
 import { auth } from '../../firebase'
+import { numberWithCommas } from '../Banner/Carousel'
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever'
 
 // Styles
 const drawer_container = {
@@ -38,7 +33,7 @@ const watchlistStyle = {
 }
 
 export default function SideBar() {
-    const { user, setAlert, watchlist, coins } = useCryptoContext()
+    const { user, setAlert, watchlist, coins, symbol } = useCryptoContext()
     const [state, setState] = React.useState({
         right: false,
     })
@@ -122,6 +117,59 @@ export default function SideBar() {
                                 <span style={{ fontSize: '1.5rem' }}>
                                     Watchlist
                                 </span>
+                                {coins.map((coin) => {
+                                    if (watchlist.includes(coin.id)) {
+                                        return (
+                                            <div
+                                                key={coin.id}
+                                                style={{
+                                                    display: 'flex',
+                                                    flexDirection: 'row',
+                                                    alignItems: 'center',
+                                                    gap: '10px',
+                                                }}
+                                            >
+                                                <div
+                                                    style={{
+                                                        backgroundColor: 'grey',
+                                                        padding: '7px',
+                                                        width: '200px',
+                                                        gap: '10px',
+                                                        display: 'flex',
+                                                        justifyContent:
+                                                            'space-evenly',
+                                                        alignItems: 'center',
+                                                        boxShadow:
+                                                            '0px 0px 5px grey',
+                                                        flexDirection: 'column',
+                                                        borderRadius: '5px',
+                                                    }}
+                                                >
+                                                    <span>{coin.name}</span>
+                                                    <span>
+                                                        {symbol}{' '}
+                                                        {numberWithCommas(
+                                                            coin.current_price.toFixed(
+                                                                2
+                                                            )
+                                                        )}
+                                                        <DeleteForeverIcon
+                                                            sx={{
+                                                                cursor: 'pointer',
+                                                                ml: '10px',
+                                                                verticalAlign:
+                                                                    'text-bottom',
+                                                                '&:hover': {
+                                                                    color: 'red',
+                                                                },
+                                                            }}
+                                                        />
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        )
+                                    }
+                                })}
                             </div>
                         </div>
                     </Drawer>
