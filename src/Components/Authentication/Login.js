@@ -3,7 +3,6 @@ import Button from '@mui/material/Button'
 import GoogleIcon from '@mui/icons-material/Google'
 import GitHubIcon from '@mui/icons-material/GitHub'
 import PermIdentityIcon from '@mui/icons-material/PermIdentity'
-import AlertPopup from '../AlertPopup'
 import { useCryptoContext } from '../../Context'
 
 const Login = () => {
