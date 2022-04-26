@@ -14,7 +14,6 @@ const App = () => {
             <div className='App'>
                 <Header />
                 <Suspense fallback={<LinearProgress color='success' />}>
-                    }>
                     <Routes>
                         <Route path='/' element={<HomePage />} />
                         <Route path='/coins/:id' element={<CoinPage />} />
