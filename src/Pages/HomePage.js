@@ -1,12 +1,20 @@
-import React from 'react'
+import { LinearProgress } from '@mui/material'
+import React, { Suspense } from 'react'
+import { ErrorBoundary } from 'react-error-boundary'
 import Banner from '../Components/Banner/Banner'
-import CoinsTable from '../Components/CoinsTable'
+const CoinsTable = React.lazy(() => import('../Components/CoinsTable'))
 
 const HomePage = () => {
     return (
         <>
             <Banner />
-            <CoinsTable />
+            <ErrorBoundary FallbackComponent={ErrorFallback} onReset={()=>{
+                window.location.reload()
+            }}>
+                <Suspense fallback={<LinearProgress color='success' />}>
+                    <CoinsTable />
+                </Suspense>
+            </ErrorBoundary>
         </>
     )
 }
