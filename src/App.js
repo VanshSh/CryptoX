@@ -4,6 +4,7 @@ import Header from './Components/Header'
 import AlertPopup from './Components/AlertPopup'
 import NotFound from './Pages/NotFound'
 import { Suspense } from 'react'
+import { LinearProgress } from '@mui/material'
 const HomePage = React.lazy(() => import('./Pages/HomePage'))
 const CoinPage = React.lazy(() => import('./Pages/CoinPage'))
 
@@ -12,7 +13,8 @@ const App = () => {
         <BrowserRouter>
             <div className='App'>
                 <Header />
-                <Suspense fallback={}>
+                <Suspense fallback={<LinearProgress color='success' />}>
+                    }>
                     <Routes>
                         <Route path='/' element={<HomePage />} />
                         <Route path='/coins/:id' element={<CoinPage />} />
