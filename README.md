@@ -21,10 +21,10 @@ https://user-images.githubusercontent.com/81517284/165265528-51599942-c4f0-46d2-
 - Vercel (For Hosting)
 - and some other lib..
 ---
-![Image](./public/images/image-1.png)
-![Image](./public/images/image2-1.png)
-![Image](./public/images/image3-1.png)
-![Image](./public/images/image4-1.png)
+![Image](./public/images/image1.png)
+![Image](./public/images/image2.png)
+![Image](./public/images/image3.png)
+![Image](./public/images/image4.png)
 
 ---
 ### Contact me:
