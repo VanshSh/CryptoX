@@ -1,35 +1,50 @@
-<h1 align=center>CryptoX  <a href="https://cryptox2.vercel.app/">LIVE DEMO</a> </h1>
 
-[![GitHub issues](https://img.shields.io/github/issues/VanshSh/cryptox2?style=for-the-badge)](https://github.com/VanshSh/cryptox2/issues)
-[![GitHub forks](https://img.shields.io/github/forks/VanshSh/cryptox2?style=for-the-badge)](https://github.com/VanshSh/cryptox2/network)
-[![GitHub stars](https://img.shields.io/github/stars/VanshSh/cryptox2?style=for-the-badge)](https://github.com/VanshSh/cryptox2/stargazers)
+# CryptoX  ( [LIVE DEMO](https://cryptox2.vercel.app/) )
 
----
+Learn about the most popular Cryptos and a list of hundreds of Cryptos with price changes in the last 24 hours. Get the performance graph as well, with options for 24 hours, 30 days, 3 months, and 1 year. 
+## Badges
+
+[![GitHub issues](https://img.shields.io/github/issues/VanshSh/cryptox2?style=for-the-badge)](https://github.com/VanshSh/cryptox2/issues) [![GitHub forks](https://img.shields.io/github/forks/VanshSh/cryptox2?style=for-the-badge)](https://github.com/VanshSh/cryptox2/network)
+[![GitHub stars](https://img.shields.io/github/stars/VanshSh/cryptox2?color=yellow&style=for-the-badge)](https://github.com/VanshSh/cryptox2/stargazers)
+
+## Features
+
+- Live Trending Repo
+- List of Cryptos with the data
+- Performance Graph for (1 Day, 30 Days, 3 Months, 1 Year)
+- Login Options using (Google, GitHub, Anonymous)
+- Option to add/remove the favorite Cryptos from the watchlist
 
 
-https://user-images.githubusercontent.com/81517284/165265528-51599942-c4f0-46d2-95bb-beb25de16188.mp4
+## Tech Stack
+
+**Client:** React, MaterialUI, Chart.js, React-Alice-Carousel
+
+**Server:** Firebase
+
+**Some other packages:** React-HTML-Parse, React-Error-Boundary
 
 
- ### The _CoinGecko_ API is used by this **CryptoX** to get real-time crypto data. It allows you to choose between the INR and the USD as your _currency_. It also displays the most popular cryptos, together with their profit and loss percentages. We acquire a list of hundreds of cryptos with some info using the _CoinGecko Coinlist_ API. We used _Chart.js_ to display a crypto price chart throughout time periods of 1 day, 30 days, 3 months, and a year. I also utilized _firebase authentication_ and _firestore_ to authenticate the user and let them to save their favorite cryptos on a watchlist.
----
-### Tech Stack used:
-- CoinGecko APIs (For fetching data)
-- Chartjs (For price chart)
-- Material UI ( For components)
-- Firebase AUth (For Authentication)
-- Firebase Firestore (For storing data)
-- Vercel (For Hosting)
-- and some other lib..
----
+## Lessons Learned
+While building this project I learnt various things such as:
+- Working with Material UI
+- Working with multiple APIs
+- Authnetication and Fetching Data from Firebase
+
+## Screenshots
+
 ![Image](./public/images/image1.png)
 ![Image](./public/images/image2.png)
 ![Image](./public/images/image3.png)
 ![Image](./public/images/image4.png)
 
----
-### Contact me:
 
-#### [Twitter](https://twitter.com/Vanshsh2701)
+## Demo
 
-#### [LinkedIn](https://www.linkedin.com/in/vanshsharma27/)
+Insert gif or link to demo
+
+
+## 🔗 Contact
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/vanshsharma27/)
+[![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/Vanshsh2701)
 
