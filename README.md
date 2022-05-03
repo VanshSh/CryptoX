@@ -9,7 +9,7 @@ Get the info about the most popular Cryptos and a list of hundreds of Cryptos wi
 
 ## Features
 
-- Live Trending Repo
+- Live Trending Cryptos
 - List of Cryptos with the data
 - Performance Graph for (1 Day, 30 Days, 3 Months, 1 Year)
 - Login Options using (Google, GitHub, Anonymous)
