@@ -25,7 +25,7 @@ Get the info about the most popular Cryptos and a list of hundreds of Cryptos wi
 **Some other packages:** React-HTML-Parse, React-Error-Boundary
 
 
-## Lessons Learned
+## Lessons Learnt:
 While building this project I learnt various things such as:
 - Working with Material UI
 - Working with multiple APIs
