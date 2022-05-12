@@ -3,6 +3,7 @@ import React, { Suspense } from 'react'
 import { ErrorBoundary } from 'react-error-boundary'
 import ErrorFallback from '../Components/ErrorBoundary'
 import Banner from '../Components/Banner/Banner'
+import Footer from '../Components/Footer'
 const CoinsTable = React.lazy(() => import('../Components/CoinsTable'))
 
 const HomePage = () => {
