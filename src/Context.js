@@ -31,11 +31,13 @@ export const CryptoContextProvider = ({ children }) => {
     useEffect(() => {
         if (currency === 'INR') setSymbol('₹')
         if (currency === 'USD') setSymbol('$')
+        if (currency === 'EUR') setSymbol('€')
     }, [currency])
 
     const fetchCoins = async () => {
         setLoading(true)
         const { data } = await axios.get(CoinList(currency))
+
         setCoins(data)
         setLoading(false)
     }

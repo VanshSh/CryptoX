@@ -40,6 +40,7 @@ const Header = () => {
                     >
                         <MenuItem value={'INR'}>INR</MenuItem>
                         <MenuItem value={'USD'}>USD</MenuItem>
+                        <MenuItem value={'EUR'}>EUR</MenuItem>
                     </Select>
                     {user ? <SideBar /> : <AuthModal />}
                 </Toolbar>
