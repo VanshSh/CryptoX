@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const notfound = {
     display: 'flex',
@@ -30,7 +30,7 @@ const notfoundNavigate = {
     fontSize: '1.2rem',
     textShadow: '0px 0px 10px #000',
     cursor: 'pointer',
-    textDecoration:'underline'
+    textDecoration: 'underline',
 }
 const NotFound = () => {
     const [errorImg, setErrorImg] = useState('')
